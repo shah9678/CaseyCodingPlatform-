@@ -22,7 +22,7 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({
       monacoEditorRef.current = monaco.editor.create(editorRef.current, {
         value: code,
         language: "typescript",
-        theme: theme === "vs-dark" ? "vs-dark" : "vs-light",
+        theme: theme, // Use the theme passed from the parent component
         minimap: { enabled: false },
         automaticLayout: true,
       });
@@ -46,7 +46,7 @@ const MonacoEditor: React.FC<MonacoEditorProps> = ({
   }, [code]);
 
   useEffect(() => {
-    monaco.editor.setTheme(theme === "vs-dark" ? "vs-dark" : "vs-light");
+    monaco.editor.setTheme(theme);
   }, [theme]);
 
   return <div ref={editorRef} style={{ width: "100%", height: "400px" }} />;

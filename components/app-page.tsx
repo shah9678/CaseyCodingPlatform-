@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import {
@@ -21,7 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { getPersonalityTheme } from "@/lib/personalityThemes";
-import { Code2, BookOpen, Target, Sparkles } from "lucide-react";
+import { Code2, BookOpen, Target, Sparkles, Play } from "lucide-react";
 
 const MonacoEditor = dynamic(() => import("@/components/MonacoEditor"), {
   ssr: false,
@@ -36,6 +36,9 @@ export function Page() {
   const [topicInfo, setTopicInfo] = useState("");
   const [personality, setPersonality] = useState("openness");
   const [theme, setTheme] = useState(getPersonalityTheme("openness"));
+  const [isHighlighted, setIsHighlighted] = useState(false);
+  const [output, setOutput] = useState("");
+  const previousCodeRef = useRef(code);
 
   useEffect(() => {
     if (isStarted) {
@@ -71,38 +74,50 @@ export function Page() {
   };
 
   const getFeedback = async () => {
-    const response = await fetch("/api/feedback", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ topic, goal, code, personality }),
-    });
-    const data = await response.json();
-    setFeedback(data.feedback);
+    if (code !== previousCodeRef.current) {
+      setIsHighlighted(true);
+      setTimeout(() => {
+        setIsHighlighted(false);
+      }, 2000);
+      previousCodeRef.current = code;
+      const response = await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ topic, goal, code, personality }),
+      });
+      const data = await response.json();
+      setFeedback(data.feedback);
+    }
+  };
+
+  const runCode = () => {
+    try {
+      // Create a new Function from the code string and execute it
+      const result = new Function(code)();
+      setOutput(String(result));
+    } catch (error) {
+      setOutput(`Error: ${error.message}`);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground p-8">
-      <Card className="max-w-4xl mx-auto">
-        <CardHeader>
-          <CardTitle className="text-3xl font-bold">
-            Personality-Based Coding Assistant
-          </CardTitle>
-          <CardDescription>
-            Tailor your coding experience to your personality
-          </CardDescription>
-        </CardHeader>
+    <div className={`min-h-screen p-8 ${theme.background}`}>
+      <Card className={`max-w-6xl mx-auto ${theme.cardBackground} shadow-lg`}>
         <CardContent>
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-6 pt-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
-                <Label htmlFor="personality" className="text-lg font-semibold">
+                <Label
+                  htmlFor="personality"
+                  className={`text-lg font-semibold ${theme.text}`}
+                >
                   Choose Your Personality
                 </Label>
                 <Select
                   onValueChange={setPersonality}
                   defaultValue={personality}
                 >
-                  <SelectTrigger className="w-full mt-2">
+                  <SelectTrigger className={`w-full mt-2 ${theme.input}`}>
                     <SelectValue placeholder="Select a personality" />
                   </SelectTrigger>
                   <SelectContent>
@@ -117,85 +132,124 @@ export function Page() {
                 </Select>
               </div>
               <div>
-                <Label htmlFor="topic" className="text-lg font-semibold">
+                <Label
+                  htmlFor="topic"
+                  className={`text-lg font-semibold ${theme.text}`}
+                >
                   What's Your Topic?
                 </Label>
                 <div className="flex items-center mt-2">
-                  <BookOpen className="mr-2" />
+                  <BookOpen className={`mr-2 ${theme.accent}`} />
                   <Input
                     id="topic"
                     value={topic}
                     onChange={(e) => setTopic(e.target.value)}
                     disabled={isStarted}
                     placeholder="e.g., React Hooks"
+                    className={theme.input}
                   />
                 </div>
               </div>
-            </div>
-            <div>
-              <Label htmlFor="goal" className="text-lg font-semibold">
-                What's Your Goal?
-              </Label>
-              <div className="flex items-center mt-2">
-                <Target className="mr-2" />
-                <Input
-                  id="goal"
-                  value={goal}
-                  onChange={(e) => setGoal(e.target.value)}
-                  disabled={isStarted}
-                  placeholder="e.g., Create a custom hook for form validation"
-                />
+              <div>
+                <Label
+                  htmlFor="goal"
+                  className={`text-lg font-semibold ${theme.text}`}
+                >
+                  What's Your Goal?
+                </Label>
+                <div className="flex items-center mt-2">
+                  <Target className={`mr-2 ${theme.accent}`} />
+                  <Input
+                    id="goal"
+                    value={goal}
+                    onChange={(e) => setGoal(e.target.value)}
+                    disabled={isStarted}
+                    placeholder="e.g., Create a custom hook"
+                    className={theme.input}
+                  />
+                </div>
               </div>
             </div>
             <Button
               onClick={startSession}
               disabled={isStarted || !topic || !goal}
-              className="w-full py-6 text-lg font-semibold"
+              className={`w-full py-6 text-lg font-medium ${theme.button}`}
             >
               <Sparkles className="mr-2" />
-              Start Your Personalized Coding Journey
+              Start
             </Button>
           </div>
         </CardContent>
       </Card>
       {isStarted && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Code2 className="mr-2" />
-                Code Editor
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <MonacoEditor
-                code={code}
-                onChange={setCode}
-                theme={theme.monacoTheme}
-              />
-            </CardContent>
-          </Card>
           <div className="space-y-8">
-            <Card>
+            <Card className={`${theme.cardBackground} shadow-lg`}>
               <CardHeader>
-                <CardTitle className="flex items-center">
-                  <BookOpen className="mr-2" />
+                <CardTitle className={`flex items-center ${theme.text}`}>
+                  <Code2 className={`mr-2 ${theme.accent}`} />
+                  Code Editor
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <MonacoEditor
+                  code={code}
+                  onChange={setCode}
+                  theme={theme.monacoTheme}
+                />
+                <Button onClick={runCode} className={`mt-4 ${theme.button}`}>
+                  <Play className="mr-2" />
+                  Run Code
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className={`${theme.cardBackground} shadow-lg`}>
+              <CardHeader>
+                <CardTitle className={`flex items-center ${theme.text}`}>
+                  <BookOpen className={`mr-2 ${theme.accent}`} />
+                  Output
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <pre
+                  className={`p-4 rounded-lg ${theme.textarea} min-h-[100px]`}
+                >
+                  {output}
+                </pre>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="space-y-8">
+            <Card className={`${theme.cardBackground} shadow-lg`}>
+              <CardHeader>
+                <CardTitle className={`flex items-center ${theme.text}`}>
+                  <BookOpen className={`mr-2 ${theme.accent}`} />
                   Topic Information
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <Textarea value={topicInfo} readOnly className="h-40" />
+                <Textarea
+                  value={topicInfo}
+                  readOnly
+                  className={`h-40 ${theme.textarea}`}
+                />
               </CardContent>
             </Card>
-            <Card>
+            <Card className={`${theme.cardBackground} shadow-lg`}>
               <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Sparkles className="mr-2" />
-                  AI Feedback
+                <CardTitle className={`flex items-center ${theme.text}`}>
+                  <Sparkles className={`mr-2 ${theme.accent}`} />
+                  Feedback
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <Textarea value={feedback} readOnly className="h-40" />
+                <Textarea
+                  value={feedback}
+                  readOnly
+                  className={`h-96 ${theme.textarea} ${
+                    isHighlighted ? "animate-pulse" : ""
+                  }`}
+                />
               </CardContent>
             </Card>
           </div>
