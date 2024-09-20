@@ -21,7 +21,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { getPersonalityTheme } from "@/lib/personalityThemes";
-import { Code2, BookOpen, Target, Sparkles, Play } from "lucide-react";
+import {
+  Code2,
+  BookOpen,
+  Target,
+  Sparkles,
+  Play,
+  Volume2,
+  VolumeX,
+} from "lucide-react";
 
 const MonacoEditor = dynamic(() => import("@/components/MonacoEditor"), {
   ssr: false,
@@ -39,6 +47,9 @@ export function Page() {
   const [isHighlighted, setIsHighlighted] = useState(false);
   const [output, setOutput] = useState("");
   const previousCodeRef = useRef(code);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const speechSynthesis =
+    typeof window !== "undefined" ? window.speechSynthesis : null;
 
   useEffect(() => {
     if (isStarted) {
@@ -87,6 +98,26 @@ export function Page() {
       });
       const data = await response.json();
       setFeedback(data.feedback);
+      speakFeedback(data.feedback);
+    }
+  };
+
+  const speakFeedback = (text: string) => {
+    if (speechSynthesis) {
+      speechSynthesis.cancel(); // Stop any ongoing speech
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+      setIsSpeaking(true);
+      utterance.onend = () => setIsSpeaking(false);
+    }
+  };
+
+  const toggleSpeech = () => {
+    if (isSpeaking) {
+      speechSynthesis?.cancel();
+      setIsSpeaking(false);
+    } else {
+      speakFeedback(feedback);
     }
   };
 
@@ -240,6 +271,17 @@ export function Page() {
                 <CardTitle className={`flex items-center ${theme.text}`}>
                   <Sparkles className={`mr-2 ${theme.accent}`} />
                   Feedback
+                  <Button
+                    onClick={toggleSpeech}
+                    className={`ml-auto ${theme.button}`}
+                    size="sm"
+                  >
+                    {isSpeaking ? (
+                      <VolumeX className="h-4 w-4" />
+                    ) : (
+                      <Volume2 className="h-4 w-4" />
+                    )}
+                  </Button>
                 </CardTitle>
               </CardHeader>
               <CardContent>
