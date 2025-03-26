@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@codemirror/lang-javascript": "^6.1.9",
@@ -25,8 +26,8 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "vm2": "^3.9.19",
-    "webpack": "^5.98.0",
-    "postinstall": "patch-package"
+    "webpack": "^5.98.0"
+    
   },
   "devDependencies": {
     "@types/node": "^20",
