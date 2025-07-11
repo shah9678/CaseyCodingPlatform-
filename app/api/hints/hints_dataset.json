@@ -1,0 +1,218 @@
+[
+  {
+    "topic": "Conditional Statements",
+    "personality": "Openness",
+    "challenge": "**The Traffic Light Challenge**\n\nYou're a traffic engineer tasked with designing a smart traffic light system. The system takes into account the time of day, traffic volume, and pedestrian presence to optimize traffic flow.\n\nWrite a program that takes three inputs:\n\n1. `time_of_day` (string): either \"morning\", \"afternoon\", or \"evening\"\n2. `traffic_volume` (integer): a value between 0 and 100 representing the traffic volume\n3. `pedestrian_presence` (boolean): `True` if pedestrians are present, `False` otherwise\n\nBased on these inputs, your program should output one of the following:\n\n* \"Green light\" if the traffic light should be green\n* \"Yellow light\" if the traffic light should be yellow\n* \"Red light\" if the traffic light should be red\n* \"Pedestrian priority\" if pedestrians have priority\n\nThe rules to determine the output are as follows:\n\n* During morning and evening hours, the traffic light should be green if traffic volume is below 30%, yellow if it's between 30% and 60%, and red if it's above 60%.\n* During afternoon hours, the traffic light should be green if traffic volume is below 40%, yellow if it's between 40% and 70%, and red if it's above 70%.\n* If pedestrians are present, the traffic light should give them priority, regardless of the time of day or traffic volume.\n\nCan you write a program using conditional statements to implement these rules?",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Use an if-elif-else structure to break down the rules into manageable chunks."
+      },
+      {
+        "label": "H2",
+        "hint": "Remember that the rules for afternoon hours are slightly different from those for morning and evening hours."
+      },
+      {
+        "label": "H3",
+        "hint": "Consider using a separate conditional statement to handle the pedestrian priority rule, as it overrides the other rules."
+      },
+      {
+        "label": "H4",
+        "hint": "Think about how you would implement a simple traffic light system with only two inputs: time of day and traffic volume."
+      },
+      {
+        "label": "H5",
+        "hint": "Start by writing an if statement to handle the morning and evening hours, then add additional elif statements as needed."
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Openness",
+    "challenge": "**Challenge: \"Traffic Light Simulator\"**\n\nWrite a program that simulates a traffic light system using conditional statements. The system has three lights: Red, Yellow, and Green.\n\nThe program should:\n\n1. Start with the Red light on.\n3. After 5 seconds, turn the Red light off and turn the Yellow light on.\n4. After 2 seconds, turn the Yellow light off and turn the Green light on.\n5. After 5 seconds, turn the Green light off and turn the Red light on again (back to step 2).\n\nThe program should continuously cycle through these steps until it is stopped.\n\n**Input:** None\n\n**Output:** The current state of the traffic light) at each step, e.g. \"Red\", \"Yellow\", \"Green\".\n\nNote: You can use any programming language and any method to simulate the time delay (e.g. sleep function, timer`, etc.)",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Initialize three boolean variables to represent the states of the Red, Yellow, and set the initial state to Red."
+      },
+      {
+        "label": "H2",
+        "hint": "Use an infinite loop to continuously cycle through the traffic light states. Think about how you'll implement the time delays."
+      },
+      {
+        "label": "H3",
+        "hint": "Break down the traffic light sequence into individual steps and write conditional statements to transition between them."
+      },
+      {
+        "label": "H4",
+        "hint": "Consider implementing a timer or sleep function to simulate the time delays. Think about a digital clock or a stopwatch."
+      },
+      {
+        "label": "H5",
+        "hint": "Inside the loop, check the current state and update the state accordingly. Print the current state before updating it."
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Openness",
+    "challenge": "**Challenge: \"Election Day\"**\n\nWrite a program that determines the eligibility of a citizen to vote in an election. The following conditions must be met:\n  1. The citizen is at least 18 years old.\n  2. The citizen is a registered voter in the country.\n  3. The citizen does not have any felony convictions.\n\nThe program should ask the user to input the following information:\n  - Age (in years)\n  - Voter registration status (yes/no)\n  - Felony conviction status (yes/no)\n\nBased on the input, the program should print out one of the following messages:\n  - \"You are eligible to vote!\"\n  - \"You are not eligible to vote due to your age.\"\n  - \"You are not eligible to vote because you are not a registered voter.\"\n  - \"You are not eligible to vote due to a felony conviction.\"\n\n**Hint:** You may need to use nested conditional statements to cover all possible scenarios.",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Use the `and` operator to combine conditions in a conditional statement."
+      },
+      {
+        "label": "H2",
+        "hint": "Think about how the order of conditions affects the output when using nested conditional statements."
+      },
+      {
+        "label": "H3",
+        "hint": "Divide the problem into smaller sub-problems, each addressing a single eligibility criterion."
+      },
+      {
+        "label": "H4",
+        "hint": "Consider a similar scenario where you need to check multiple criteria, like a password verification system."
+      },
+      {
+        "label": "H5",
+        "hint": "Start by writing a conditional statement that checks if the citizen is at least 18 years old, then build upon that."
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Conscientiousness",
+    "challenge": "**The Mysterious Temple of Conditional Statements**\n\nYou stumble upon a mysterious temple with three chambers, each containing a magical artifact. To claim the artifacts, you must navigate through the chambers by solving the ancient puzzles hidden within.\n\n**Chamber 1: The Gate of Equality**\n\nYou approach the first chamber, where a glowing portal blocks your path. An inscription reads:\n\n\"Only those who can determine the equality of two mystical numbers, **X** and **Y**, shall pass.\"\n\nWrite a program that takes **X** and **Y** as integers and outputs:\n\n* \"EQUAL\" if **X** is equal to **Y**\n* \"NOT EQUAL\" otherwise\n\n**Chamber 2: The Hall of Comparisons**\n\nAs you venture deeper, you enter a hall filled with ancient relics. A cryptic message says:\n\n\"To claim the second artifact, demonstrate your understanding of the greater-than and less-than relationships between two mystical forces, **A** and **B**.\"\n\nWrite a program that takes **A** and **B** as integers and outputs:\n\n* \"A IS GREATER\" if **A**B**\n* \"B IS GREATER\" **A** < **B**\n* \"EQUAL FORCES\" if **A** = **B**\n\n**Chamber 3: The Sanctum of Logic**\n\nThe final chamber presents a complex challenge. An ancient sage whispers:\n\n\"Unite the principles of equality and comparison to unlock the final artifact.\"\n\nWrite a program that takes three integers, **P**, **Q**, and **R**, and outputs:\n\n* \"TRIUMPH\" if **P** is equal to **Q** and **Q** is greater than **R**\n* \"FAILURE\" otherwise\n\nWill you successfully navigate the Mysterious Temple of Conditional Statements and claim the three magical artifacts?",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Start by using if-else statements to separate the different cases for each chamber."
+      },
+      {
+        "label": "H2",
+        "hint": "Remember that equality checks use the '==' operator, not the assignment operator '='."
+      },
+      {
+        "label": "H3",
+        "hint": "Think about how you can break down the problem into smaller, more manageable conditions."
+      },
+      {
+        "label": "H4",
+        "hint": "Consider how you would write a simple if-else statement for a single condition, then build upon that for more complex conditions."
+      },
+      {
+        "label": "H5",
+        "hint": "For Chamber 3, start by checking if P is equal to Q, and only then check if Q is greater than R."
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Conscientiousness",
+    "challenge": "**Challenge: \"Weather Forecast\"**\n\nWrite a program that takes the temperature (in Celsius) and a string indicating the weather condition (e.g., \"Sunny\", \"Cloudy\", etc.) as input. The program should output a message based on the following conditions:\n\n* If the temperature is above 25°C and the weather is \"Sunny\", output \"Perfect day! Wear sunscreen!\"\n* If the temperature is between 15°C and 20°C (inclusive) and the weather is \"Rainy\", output \"Take an umbrella! It's going to rain.\"\n* If the temperature is below 10°C, output \"It's freezing! Wear a coat!\"\n* For all other cases, output \"Standard weather. Nothing special today.\"\n\nYour program should use conditional statements (if-else or switch-case) to determine the output based on the input conditions.",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Don't forget to use comparison operators (>, <, >=, and the logical AND operator (&&) to evaluate multiple conditions."
+      },
+      {
+        "label": "H2",
+        "hint": "Think about the order of your conditional statements. Will the program reach the second condition if the first condition is true?"
+      },
+      {
+        "label": "H3",
+        "hint": "Group similar conditions together. Consider using elif for subsequent conditions."
+      },
+      {
+        "label": "H4",
+        "hint": "Remember the program for checking the grade of a student? You can apply a similar approach here."
+      },
+      {
+        "label": "H5",
+        "hint": "Write the first condition that checks the temperature and weather. Then, try to output the correct message."
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Conscientiousness",
+    "challenge": "**Challenge: \"Ticket Validator\"**\n\nYou are tasked with creating a ticket validation system for a concert. The rules for ticket validation are as follows:\n\n* If the ticket holder is 18 years or older, and has a valid ticket (represented by a boolean value), they can enter the concert.\n* If the ticket holder is under 18, but has a parent accompanying them (represented by another boolean value), they can enter the concert.\n* In all other cases, the ticket holder cannot enter the concert.\n\nWrite a program that takes in the following inputs:\n\n* `age`: an integer representing the age of the ticket holder\n* `has_ticket`: a boolean value indicating whether they have a ticket\n* `has_ticket`: a boolean value indicating whether the parent has a ticket (only relevant if `age` is under 18)\n\nUsing conditional statements, write a program that outputs a message indicating whether the ticket holder can enter or not.**\n\n**Example Input/Output:**\n\n* Input: `age = 20, has_ticket = True, parent_has_ticket = False`\nOutput: \"You can enter the concert.\"\n* Input: `age = 15, has_ticket = True, parent_has_ticket = True`\nOutput: \"You can enter the concert.\"\n* Input: `age = 17, has_ticket = False, parent_has_ticket = False`\nOutput: \"You cannot enter the concert.\"",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Remember to use the >= operator to check if the ticket holder is 18 years or older."
+      },
+      {
+        "label": "H2",
+        "hint": "Think about how the conditional statements will flow. If the ticket holder is under 18, what conditions need to be true for them to enter the concert?"
+      },
+      {
+        "label": "H3",
+        "hint": "Break down the conditions into individual parts and then combine them using logical AND and OR operators."
+      },
+      {
+        "label": "H4",
+        "hint": "Consider a scenario where the ticket holder is 19 and has a valid ticket. How would you write the conditional statement for this case?"
+      },
+      {
+        "label": "H5",
+        "hint": "Start by writing a conditional statement to check if they can enter the concert if they are 18 years or older and have a valid ticket. Then, add the additional condition for those under 18."
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Conscientiousness",
+    "challenge": "**Challenge: \"Traffic Light Controller\"**\n\nYou are tasked with writing a program that simulates a traffic light controller. The program should take three inputs:\n\n* `green_time`: the duration (in seconds) of the green light\n* `yellow_time`: the duration (in seconds) of the yellow light phase\n* `red_time`: the duration (in seconds) of the red light\n\nThe program should print out the current state of the traffic light, with the following rules:\n\n* When the green light is active, print \"Green\" every second\n* When the yellow light is active, print \"Yellow\" every second\n* When the red light is active, print \"Red\" every second\n* When transitioning from green to yellow, print \"Yellow\" only once\n* When transitioning from yellow to red, print \"Red\" only once\n\nFor example, if `green_time` is 5, `yellow_time` is 2, and `red_time` is 3, the output should be:\n```\nGreen\nGreen\nGreen\nGreen\nGreen\nYellow\nRed\nRed\nRed\n```\nNote: You can assume that the inputs will always be positive integers).",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Remember to use a conditional statement to check the current time against the green, yellow, and red light durations."
+      },
+      {
+        "label": "H2",
+        "hint": "Think about how you can use the modulo operator to help you print the current state of the traffic light every second."
+      },
+      {
+        "label": "H3",
+        "hint": "Consider breaking down the problem into three main stages: green light, yellow light, and red light. Use conditionals to control the flow of your program."
+      },
+      {
+        "label": "H4",
+        "hint": "Look at how you would implement a timer in a different context, such as a countdown. How can you apply that logic to this problem?"
+      },
+      {
+        "label": "H5",
+        "hint": "Start by setting up a loop that runs for the total duration of the traffic light cycle. Then, use conditionals to determine which state the light should be in at each iteration."
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Extraversion",
+    "challenge": "**Challenge: \"Traffic Light Simulator\"**\n\nWrite a program that simulates a traffic light system. The program should take an input `time` (in seconds) and output the color of the traffic light at that time.\n\nThe rules are as follows:\n\n* The traffic light has three colors: Red, Yellow, and Green.\n* The sequence of colors is: Red -> Green -> Yellow -> Red -> ...\n* The duration of each color is:\n\t+ Red: 30 seconds\n\t+ Green: 30 seconds\n\t+ Yellow: 10 seconds\n* If the input `time` is 0 or less, the output should be \"Red\".\n\nFor example, if the input `time` is 45, the program should output \"Yellow\" because 45 seconds have passed since the last Red light (30 seconds) and the Green light (30 seconds), and the Yellow light has been on for 5 seconds.\n\nWrite a program that meets these conditions using conditional statements.",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Think about using the modulus operator (%) to find the remainder of the time divided by the total duration of one cycle of the traffic light"
+      },
+      {
+        "label": "H2",
+        "hint": "Remember that the sequence of colors is Red -> Green -> Yellow -> Red, so consider using if-else statements to check the range of time for each color."
+      },
+      {
+        "label": "H3",
+        "hint": "Break down the problem into smaller parts: first, find the remainder of the time, then determine the color based on the range of the remainder."
+      },
+      {
+        "label": "H4",
+        "hint": "Consider a similar problem where you need to find the day of the week given a certain number of days since the start of the week."
+      },
+      {
+        "label": "H5",
+        "hint": "Start by writing a conditional statement to check if the time is 0 or less, and output 'Red' if true."
+      }
+    ]
+  }
+]

@@ -1,0 +1,353 @@
+[
+  {
+    "topic": "Conditional Statements",
+    "personality": "Openness",
+    "challenge": "Create a script that checks if a given number is even or odd, and print \"Even\" if it's divisible by 2 and \"Odd\" if it's not.",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Conditional statements are your friend when dealing with logic problems."
+      },
+      {
+        "label": "H2",
+        "hint": "Think about how you can use the modulo operator to determine if a number is divisible by 2."
+      },
+      {
+        "label": "H3",
+        "hint": "Use an if-else statement to check the condition and print the appropriate message."
+      },
+      {
+        "label": "H4",
+        "hint": "You can use the code snippet `4 % 2 == 0` as a reference to understand the modulo operator."
+      },
+      {
+        "label": "H5",
+        "hint": "Start by writing the if statement and then add the else block to complete the code."
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Openness",
+    "challenge": "Write a JavaScript function that takes a string as input and returns true if it starts with \"hello\", and false otherwise.",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Think about the beginning of the input string..."
+      },
+      {
+        "label": "H2",
+        "hint": "The function should check if the string starts with a certain keyword..."
+      },
+      {
+        "label": "H3",
+        "hint": "Use a conditional statement to make the decision..."
+      },
+      {
+        "label": "H4",
+        "hint": "Think about how you would check if a string starts with a certain word in real life..."
+      },
+      {
+        "label": "H5",
+        "hint": "Try using the === operator to compare the first few characters of the input with a target string..."
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Conscientiousness",
+    "challenge": "Create a JavaScript function that prompts the user for their age and outputs a message saying \"You're eligible to vote!\" if the user is 18 or older, or \"You're not yet eligible to vote\" otherwise.",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": ": Pay attention to the condition in if statements as they are crucial in determining the flow of the program."
+      },
+      {
+        "label": "H2",
+        "hint": "Consider the behavior of the == operator when comparing values for equality."
+      },
+      {
+        "label": "H3",
+        "hint": "Think about how to structure the code to meet the specific requirements of the challenge."
+      },
+      {
+        "label": "H4",
+        "hint": "Look to if statements in previous challenges for a similar approach."
+      },
+      {
+        "label": "H5",
+        "hint": "Make sure to test your function with different age inputs and provide a clear output message."
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Conscientiousness",
+    "challenge": "Develop a Java program that reads a temperature value in Celsius and converts it to Fahrenheit if it's below 0°C, or Kelvin if it's at or above 0°C.",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Consider the IF statement structure"
+      },
+      {
+        "label": "H2",
+        "hint": "The temperature value will determine the conversion type and subsequent calculation"
+      },
+      {
+        "label": "H3",
+        "hint": "Use conditional logic to determine the conversion type based on the temperature value"
+      },
+      {
+        "label": "H4",
+        "hint": "Look at how the Java ternary operator can be used to simplify the temperature conversion logic"
+      },
+      {
+        "label": "H5",
+        "hint": "Start by identifying the initial temperature value and then decide which conversion type to apply based on its value"
+      }
+    ]
+  },
+  {
+    "topic": "Loops and Functions",
+    "personality": "Openness",
+    "challenge": "Implement a `calculate_area` function that takes the length and width of a rectangle as arguments and returns its area using a while loop to handle the case where the length or width is negative.",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Use a while loop to repeatedly ask for user input until valid numbers are provided."
+      },
+      {
+        "label": "H2",
+        "hint": "Consider the mathematical formula for the area of a rectangle."
+      },
+      {
+        "label": "H3",
+        "hint": "Think about how you can use a loop to repeatedly subtract 1 from a value until it's within a certain range."
+      },
+      {
+        "label": "H4",
+        "hint": "Recall how you can use the `area = length * width` formula to calculate the area of a rectangle."
+      },
+      {
+        "label": "H5",
+        "hint": "Write a line of code that checks if the length or width is less than or equal to 0, and if so, ask the user for input again."
+      }
+    ]
+  },
+  {
+    "topic": "Loops and Functions",
+    "personality": "Conscientiousness",
+    "challenge": "Implement a JavaScript function called `count_vowels` that accepts a string as input and returns the count of vowels in the string, using a loop to iterate over each character.",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Function declarations typically start with the ```` keyword."
+      },
+      {
+        "label": "H2",
+        "hint": "When iterating over a string, remember that strings are iterable by default."
+      },
+      {
+        "label": "H3",
+        "hint": "A loop always requires a counter variable to keep track of the current iteration."
+      },
+      {
+        "label": "H4",
+        "hint": "The modulo operator `%` can be used to check if a character's ASCII value falls within a specific range (e.g., vowel ASCII values). Try using it to group vowel characters together."
+      },
+      {
+        "label": "H5",
+        "hint": "Don't forget to initialize your vowel count variable to 0, and return it at the end of the function."
+      }
+    ]
+  },
+  {
+    "topic": "Loops and Functions",
+    "personality": "Conscientiousness",
+    "challenge": "Develop a Java method called `calculate_fibonacci` that accepts an integer `n` as input, uses a loop to generate the first `n` Fibonacci numbers, and returns the result as a string in the format \"Fibonacci sequence: 1, 1, 2, 3, ...\".",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Start by declaring a method with the correct signature and return type."
+      },
+      {
+        "label": "H2",
+        "hint": "Make sure to handle the base cases correctly, as the Fibonacci sequence starts with 1 and 1."
+      },
+      {
+        "label": "H3",
+        "hint": "Consider using a loop that iterates from 2 to n, generating each Fibonacci number using the previous two."
+      },
+      {
+        "label": "H4",
+        "hint": "You can use a StringBuilder to efficiently build the output string, concatenating the numbers and commas as you go."
+      },
+      {
+        "label": "H5",
+        "hint": "To add the delimiting comma and space after each number, you can use the append method and concatenate a string with the comma and space."
+      }
+    ]
+  },
+  {
+    "topic": "Loops and Functions",
+    "personality": "Conscientiousness",
+    "challenge": "I hope these challenges help your students practice their coding skills!",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Use loops to iterate over a list or array"
+      },
+      {
+        "label": "H2",
+        "hint": "Functions can also run in loops, especially when you need to apply the same operation to multiple inputs"
+      },
+      {
+        "label": "H3",
+        "hint": "Break down a complex task into smaller, more manageable parts by using loops and functions"
+      },
+      {
+        "label": "H4",
+        "hint": "Consider using a for loop to iterate over a list of numbers, and a function to perform a calculation on each number"
+      },
+      {
+        "label": "H5",
+        "hint": "Check if your code is producing the expected output and adjust the loop or function as needed"
+      }
+    ]
+  },
+  {
+    "topic": "Loops and Functions",
+    "personality": "Agreeableness",
+    "challenge": "Create a program that uses a loop to print the first 10 Fibonacci numbers, where each number is the sum of the two preceding numbers (0, 1, 1, 2, 3, 5, 8, 13, ...).",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Remember, you'll need a pair of variables to keep track of your Fibonacci sequence!"
+      },
+      {
+        "label": "H2",
+        "hint": "Think about how you can use a loop to generate each Fibonacci number based on the previous ones."
+      },
+      {
+        "label": "H3",
+        "hint": "You can use a function to define a pattern and iterate over the sequence."
+      },
+      {
+        "label": "H4",
+        "hint": "Check how a recursive function could work for this problem."
+      },
+      {
+        "label": "H5",
+        "hint": "Start by initializing your variables and looping until you reach the 10th Fibonacci number."
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Openness",
+    "challenge": "Create a game where the user is presented with a series of questions, each with a corresponding point value, and the program keeps track of the user's score and prints out a congratulatory message if they achieve a score of 10 or more points.",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Consider how you can structure your code to iterate through the questions and keep track of the user's score."
+      },
+      {
+        "label": "H2",
+        "hint": "Think about how you can use conditional statements to evaluate the user's answer and update the score accordingly."
+      },
+      {
+        "label": "H3",
+        "hint": "Use a structured approach to break down the problem into smaller manageable parts, focusing on one question at a time."
+      },
+      {
+        "label": "H4",
+        "hint": "Consider a similar scenario where you keep track of a running total of items in a list."
+      },
+      {
+        "label": "H5",
+        "hint": "Use a nested if statement to check the user's answer and then check the score to see if the congratulatory message should be printed."
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Conscientiousness",
+    "challenge": "Develop a Java program that simulates a basic game where the user has to guess a randomly chosen number between 1 and 100. Use conditional statements to validate the user's guess and provide feedback on whether they're getting closer or not.",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Focus on the conditions that determine the game's flow"
+      },
+      {
+        "label": "H2",
+        "hint": "Think about the logical relationships between user input and the game's state"
+      },
+      {
+        "label": "H3",
+        "hint": "Use if-else statements to structure the game's decision-making process"
+      },
+      {
+        "label": "H4",
+        "hint": "Look at how a similar game with only 2 possibilities (e.g., Rock-Scissors-Paper) uses conditionals"
+      },
+      {
+        "label": "H5",
+        "hint": "Try implementing a basic user input validation mechanism to ensure correct game logic"
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Conscientiousness",
+    "challenge": "These challenges aim to gradually increase in complexity, requiring students to apply conditional statements in different contexts and scenarios.",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Start by identifying the conditions that need to be checked."
+      },
+      {
+        "label": "H2",
+        "hint": "Remember, the condition is evaluated to true or false, and the corresponding code block is executed accordingly."
+      },
+      {
+        "label": "H3",
+        "hint": "Think about how you would approach this problem in real life. What steps would you take? Translate those steps into code."
+      },
+      {
+        "label": "H4",
+        "hint": "Consider a simple example where you ask the user for their age and respond accordingly."
+      },
+      {
+        "label": "H5",
+        "hint": "Write the initial condition and its corresponding code block. Then, test the code with different input values."
+      }
+    ]
+  },
+  {
+    "topic": "Conditional Statements",
+    "personality": "Openness",
+    "challenge": "Write a program that takes a user's name as input and prints out a personalized greeting if the name is \"Alice\" or \"Bob\", and a default message otherwise.",
+    "hints": [
+      {
+        "label": "H1",
+        "hint": "Think about conditional statements that check for equality."
+      },
+      {
+        "label": "H2",
+        "hint": "The condition can be true or false, affect the control flow of your program."
+      },
+      {
+        "label": "H3",
+        "hint": "Consider using an if-else statement to handle different conditions."
+      },
+      {
+        "label": "H4",
+        "hint": "For example, if you want to print different messages for different students in a class, you can use if-else."
+      },
+      {
+        "label": "H5",
+        "hint": "Start by checking the name against 'Alice' or 'Bob', then print a greeting if true, otherwise go to the else clause."
+      }
+    ]
+  }
+]

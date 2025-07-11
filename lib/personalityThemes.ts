@@ -1,4 +1,6 @@
 type PersonalityTheme = {
+  select: string;
+  label: string;
   background: string;
   cardBackground: string;
   text: string;
